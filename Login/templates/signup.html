@@ -10,7 +10,10 @@
             {% bootstrap_form form %}
             
             <hr>
-            <input type="submit" class='btn btn-primary align-self-center' value="Cadastrar">
+            <div class='d-flex flex-column'>
+                <input type="submit" class='btn btn-primary align-self-center' value="Cadastrar">
+                <a href="{% url "login" %}" class='text-center'>já tem conta? Que tal se logar?</a>
+            </div>
         </div>
 
     </form>

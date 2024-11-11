@@ -25,10 +25,10 @@ class Login(View):
                 login(request, user_obj)
                 return redirect('home')
             
-            return redirect('login')
+            return render(request, 'login.html', {'Error': 'Senha Incorreta!'})
         
         except user.DoesNotExist as e:
-            return HttpResponse(f'{e}: Usuário não encontrado, por favor insira credenciais existentes!')
+            return render(request, 'login.html', {'Error': 'Credenciais Incorretas! Usuário não existente'})
 
 
 class SignUp(View):
