@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+
+
+{% block content %}
+    <form action="" class='d-flex align-items-center justify-content-center' style='height: 100vh' method="post">
+        {% csrf_token %}
+
+        <div class='p-4 w-50'>
+            {% bootstrap_form form %}
+            
+            <hr>
+            <input type="submit" class='btn btn-primary align-self-center' value="Cadastrar">
+        </div>
+
+    </form>
+{% endblock content %}
