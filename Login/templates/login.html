@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base_login.html" %}
 {% load django_bootstrap5 %}
 
 
@@ -10,7 +10,7 @@
             
             <div class='row'>
                 <div class='col'>
-                    <label for="user">E-mail</label>
+                    <label for="email">E-mail</label>
                     <input type="email" class='form-control col-12' name="email" id="email" required>
                 </div>
                 
@@ -33,7 +33,6 @@
 
             <div class='d-flex flex-column'>
                 <input type="submit" class='btn btn-primary btn-sm w-50 align-self-center' value="Login" required>
-                <a class='text-center' href="{% url "signup" %}" target="_blank">Não tem conta? Clique aqui</a>
             </div>
 
         </form>
