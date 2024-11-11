@@ -1,8 +1,12 @@
-{% extends "base.html" %}
+{% extends "base_home.html" %}
 {% load django_bootstrap5 %}
 
+{% block conteudo %}
 
-{% block content %}
-    {{ user }}
-
-{% endblock content %}
+    <div class='text-center mt-2'>
+        <h4>Seja Bem Vindo {{ user }}</h4>
+    </div>
+    
+    {% include "cards.html" %}
+    
+{% endblock conteudo %}
