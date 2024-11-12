@@ -4,7 +4,8 @@
 {% block conteudo %}
 
     <div class='text-center mt-2'>
-        <h4>Seja Bem Vindo {{ user }}</h4>
+        <h4>Seja Bem Vindo </h4>
+        <h4>{{ user.first_name }} {{ user.last_name }}</h4>
     </div>
     
     {% include "cards.html" %}
