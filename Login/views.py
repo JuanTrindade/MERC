@@ -1,11 +1,8 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect, HttpResponse
-from django.views.generic import CreateView, ListView, UpdateView, DeleteView, View
-from django.contrib.auth.hashers import make_password, check_password
-from django.contrib.auth import login, logout, authenticate
+from django.views.generic import View
+from django.contrib.auth import login, logout
 from acl.models import User as UserModel
-# 
-# 
-from .forms import UserForm
+
 
 class Login(View):
     def get(self, request):
@@ -23,31 +20,9 @@ class Login(View):
             
             if is_password_correct:     
                 login(request, user_obj)
-                return redirect('home')
+                return redirect('home:home')
             
             return render(request, 'login.html', {'Error': 'Senha Incorreta!'})
         
         except user.DoesNotExist as e:
             return render(request, 'login.html', {'Error': 'Credenciais Incorretas! Usuário não existente'})
-
-
-class SignUp(View):
-    def get(self, request):
-        user_form = UserForm()
-
-        return render(request, 'signup.html', {
-            'form': user_form
-        })
-    
-    def post(self, request):
-        user_form = UserForm(request.POST)
-
-        if user_form.is_valid():
-            user = user_form.save(commit=False)
-            user.password = make_password(user.password)
-            user.save()
-
-            return redirect('login')
-    
-# def render_login(request):
-#     return render(request, 'login.html')

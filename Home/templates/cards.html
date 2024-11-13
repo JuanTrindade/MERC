@@ -8,13 +8,13 @@
                 <div class="card-body">
 
                     <div class='d-flex justify-content-center flex-column'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width='60' class='align-self-center' viewBox="0 0 640 512">
+                        <svg xmlns="http://www.w3.org/2000/svg" width='60' height="60" class='align-self-center' viewBox="0 0 640 512">
                             <path d="M621.2 54.5C582.4 38.2 543.6 32 504.8 32c-123.2 0-246.3 62.3-369.5 62.3-30.9 0-61.8-3.9-92.7-13.7-3.5-1.1-7-1.6-10.4-1.6C15 79 0 92.3 0 110.8v317.3c0 12.6 7.2 24.6 18.8 29.5C57.6 473.8 96.5 480 135.3 480c123.2 0 246.3-62.4 369.5-62.4 30.9 0 61.8 3.9 92.7 13.7 3.5 1.1 7 1.6 10.4 1.6 17.2 0 32.3-13.3 32.3-31.8V83.9c0-12.6-7.2-24.6-18.9-29.5zM48 132.2c20.1 5 41.1 7.6 62.7 8.9C104.8 170.5 79 192.7 48 192.7v-60.5zm0 285v-47.8c34.4 0 62.2 27.3 63.7 61.4-22.5-1.8-43.6-6.3-63.7-13.6zM320 352c-44.2 0-80-43-80-96 0-53 35.8-96 80-96s80 43 80 96c0 53-35.8 96-80 96zm272 27.8c-17.5-4.4-35.7-6.9-54.3-8.4 5.9-26.1 27.5-45.9 54.3-49.3v57.7zm0-236.1c-30.9-3.9-54.9-29.7-55.8-61.6 19.5 2.2 38.1 6.2 55.8 12.7v48.9z"/>
                         </svg>
 
                         <p class="card-text mt-2">Vender Produtos Que Estão Em Estoque! </p>
                         
-                        <a href="{% url "login" %}" class='btn btn-primary'>Vender Produtos</a>
+                        <a href="{% url "login:login" %}" class='btn btn-primary'>Vender Produtos</a>
                     </div>
                     
                 </div>
@@ -28,13 +28,13 @@
                 <div class="card-body">
 
                     <div class='d-flex justify-content-center flex-column'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width='42' class='align-self-center' viewBox="0 0 448 512">
+                        <svg xmlns="http://www.w3.org/2000/svg" width='60' height="60" class='align-self-center' viewBox="0 0 448 512">
                             <path d="M128 184c0-30.9 25.1-56 56-56h136V56c0-13.3-10.7-24-24-24h-80.6C204.3 12.9 183.6 0 160 0s-44.3 12.9-55.4 32H24C10.7 32 0 42.7 0 56v336c0 13.3 10.7 24 24 24h104V184zm32-144c13.3 0 24 10.7 24 24s-10.7 24-24 24-24-10.7-24-24 10.7-24 24-24zm184 248h104v200c0 13.3-10.7 24-24 24H184c-13.3 0-24-10.7-24-24V184c0-13.3 10.7-24 24-24h136v104c0 13.2 10.8 24 24 24zm104-38.1V256h-96v-96h6.1a24 24 0 0 1 17 7l65.9 65.9a24 24 0 0 1 7 17z"/>
                         </svg>
 
                         <p class="card-text mt-2">Inserir Relatórios Sobre Produtos Vendidos Na Plataforma!</p>
                         
-                        <a href="{% url "login" %}" class='btn btn-primary'>Cadastrar Relatórios</a>
+                        <a href="{% url "login:login" %}" class='btn btn-primary'>Cadastrar Relatórios</a>
                     </div>
                     
                 </div>
@@ -48,13 +48,13 @@
                 <div class="card-body">
 
                     <div class='d-flex justify-content-center flex-column'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width='45' class='align-self-center' viewBox="0 0 512 512">
+                        <svg xmlns="http://www.w3.org/2000/svg" width='60' height="60" class='align-self-center' viewBox="0 0 512 512">
                             <path d="M509.5 184.6L458.9 32.8C452.4 13.2 434.1 0 413.4 0H272v192h238.7c-.4-2.5-.4-5-1.2-7.4zM240 0H98.6c-20.7 0-39 13.2-45.5 32.8L2.5 184.6c-.8 2.4-.8 4.9-1.2 7.4H240V0zM0 224v240c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V224H0z"/>
                         </svg>
 
                         <p class="card-text mt-2">Cadastrar Produtos Para o Estoque!</p>
                         
-                        <a href="{% url "login" %}" class='btn btn-primary'>Cadastrar Produtos</a>
+                        <a href="{% url "login:login" %}" class='btn btn-primary'>Cadastrar Produtos</a>
                     </div>
                     
                 </div>
@@ -66,7 +66,7 @@
 
 
     {% if user.is_superuser %}
-        <div class='row'>
+        <div class='row mt-4'>
 
             <div class='col m-2'>
 
@@ -74,13 +74,13 @@
                     <div class="card-body">
 
                         <div class='d-flex justify-content-center flex-column'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width='60' class='align-self-center' viewBox="0 0 640 512">
+                            <svg xmlns="http://www.w3.org/2000/svg" width='60' height="60" class='align-self-center' viewBox="0 0 640 512">
                                 <path d="M610.5 373.3c2.6-14.1 2.6-28.5 0-42.6l25.8-14.9c3-1.7 4.3-5.2 3.3-8.5-6.7-21.6-18.2-41.2-33.2-57.4-2.3-2.5-6-3.1-9-1.4l-25.8 14.9c-10.9-9.3-23.4-16.5-36.9-21.3v-29.8c0-3.4-2.4-6.4-5.7-7.1-22.3-5-45-4.8-66.2 0-3.3 .7-5.7 3.7-5.7 7.1v29.8c-13.5 4.8-26 12-36.9 21.3l-25.8-14.9c-2.9-1.7-6.7-1.1-9 1.4-15 16.2-26.5 35.8-33.2 57.4-1 3.3 .4 6.8 3.3 8.5l25.8 14.9c-2.6 14.1-2.6 28.5 0 42.6l-25.8 14.9c-3 1.7-4.3 5.2-3.3 8.5 6.7 21.6 18.2 41.1 33.2 57.4 2.3 2.5 6 3.1 9 1.4l25.8-14.9c10.9 9.3 23.4 16.5 36.9 21.3v29.8c0 3.4 2.4 6.4 5.7 7.1 22.3 5 45 4.8 66.2 0 3.3-.7 5.7-3.7 5.7-7.1v-29.8c13.5-4.8 26-12 36.9-21.3l25.8 14.9c2.9 1.7 6.7 1.1 9-1.4 15-16.2 26.5-35.8 33.2-57.4 1-3.3-.4-6.8-3.3-8.5l-25.8-14.9zM496 400.5c-26.8 0-48.5-21.8-48.5-48.5s21.8-48.5 48.5-48.5 48.5 21.8 48.5 48.5-21.7 48.5-48.5 48.5zM224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm201.2 226.5c-2.3-1.2-4.6-2.6-6.8-3.9l-7.9 4.6c-6 3.4-12.8 5.3-19.6 5.3-10.9 0-21.4-4.6-28.9-12.6-18.3-19.8-32.3-43.9-40.2-69.6-5.5-17.7 1.9-36.4 17.9-45.7l7.9-4.6c-.1-2.6-.1-5.2 0-7.8l-7.9-4.6c-16-9.2-23.4-28-17.9-45.7 .9-2.9 2.2-5.8 3.2-8.7-3.8-.3-7.5-1.2-11.4-1.2h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c10.1 0 19.5-3.2 27.2-8.5-1.2-3.8-2-7.7-2-11.8v-9.2z"/>
                             </svg>
 
                             <p class="card-text mt-2">Cadastrar Um Novo Funcionário Na Plataforma</p>
                             
-                            <a href="{% url "signup" %}" class='btn btn-primary'> Cadastrar Funcionário</a>
+                            <a href="{% url "acl:signup" %}" class='btn btn-primary'> Cadastrar Funcionário</a>
                         </div>
                 
                     </div>
@@ -94,13 +94,13 @@
                     <div class="card-body">
 
                         <div class='d-flex justify-content-center flex-column'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width='60' class='align-self-center' viewBox="0 0 640 512">
+                            <svg xmlns="http://www.w3.org/2000/svg" width='60' height="60" class='align-self-center' viewBox="0 0 640 512">
                                 <path d="M630.6 364.9l-90.3-90.2c-12-12-28.3-18.7-45.3-18.7h-79.3c-17.7 0-32 14.3-32 32v79.2c0 17 6.7 33.2 18.7 45.2l90.3 90.2c12.5 12.5 32.8 12.5 45.3 0l92.5-92.5c12.6-12.5 12.6-32.7 .1-45.2zm-182.8-21c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24c0 13.2-10.7 24-24 24zm-223.8-88c70.7 0 128-57.3 128-128C352 57.3 294.7 0 224 0S96 57.3 96 128c0 70.6 57.3 127.9 128 127.9zm127.8 111.2V294c-12.2-3.6-24.9-6.2-38.2-6.2h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 287.9 0 348.1 0 422.3v41.6c0 26.5 21.5 48 48 48h352c15.5 0 29.1-7.5 37.9-18.9l-58-58c-18.1-18.1-28.1-42.2-28.1-67.9z"/>
                             </svg>
 
                             <p class="card-text mt-2">Cadastrar Um Novo Cliente Na Plataforma</p>
                             
-                            <a href="{% url "login" %}" class='btn btn-primary'>Cadastrar Cliente</a>
+                            <a href="{% url "acl:signclient" %}" class='btn btn-primary'>Cadastrar Cliente</a>
                         </div>
                 
                     </div>
@@ -114,13 +114,13 @@
                     <div class="card-body">
 
                         <div class='d-flex justify-content-center flex-column'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width='42' class='align-self-center' viewBox="0 0 448 512">
+                            <svg xmlns="http://www.w3.org/2000/svg" width='60' height="60" class='align-self-center' viewBox="0 0 448 512">
                                 <path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm95.8 32.6L272 480l-32-136 32-56h-96l32 56-32 136-47.8-191.4C56.9 292 0 350.3 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-72.1-56.9-130.4-128.2-133.8z"/>
                             </svg>
 
                             <p class="card-text mt-2">Cadastrar Um Novo Fornecedor Na Plataforma</p>
                             
-                            <a href="{% url "login" %}" class='btn btn-primary'> Cadastrar Forncedor</a>
+                            <a href="{% url "acl:signsupplier" %}" class='btn btn-primary'> Cadastrar Fornecedor</a>
                         </div>
                 
                     </div>

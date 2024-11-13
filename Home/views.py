@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 
 
 class Home(View):
-    @method_decorator(login_required(login_url='login'))
+    @method_decorator(login_required(login_url='login:login'))
     def get(self, request):
         return render(request, 'home.html')
 
