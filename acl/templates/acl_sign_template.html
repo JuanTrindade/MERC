@@ -1,6 +1,6 @@
 {% extends "base_login.html" %}
 {% load django_bootstrap5 %}
-
+{% load static %}
 
 {% block content %}
 
@@ -18,7 +18,9 @@
 
 
     {% else %}
-        <form action="" class='d-flex align-items-center justify-content-center' style='height: 100vh' method="post">
+        <form action="" class='d-flex align-items-center justify-content-center flex-column m-4' style='height: 95vh' method="post">
+            <img src="{% static "logo_oficial.jpg" %}" class='img-fluid' style='width: 200px; heigth: 200px;' alt="Logo Merc">
+
             {% csrf_token %}
 
             <div class='p-4 w-50'>

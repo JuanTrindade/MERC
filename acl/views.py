@@ -1,15 +1,16 @@
 from django.shortcuts import render, redirect
 from django.views.generic import View
 from django.contrib.auth.hashers import make_password, check_password
-from django.utils.decorators import method_decorator
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 # 
 # 
 from .forms import UserForm, UserClientForm, UserSupplierForm
 
+class RegisterBase(LoginRequiredMixin, View):
+    login_url = 'login:login'
 
-class SignUp(View):
-    @method_decorator(login_required(login_url='login:login'))
+
+class SignUp(RegisterBase):
     def get(self, request):
         user_form = UserForm()
 
@@ -17,7 +18,6 @@ class SignUp(View):
             'form': user_form
         })
     
-    @method_decorator(login_required(login_url='login:login'))
     def post(self, request):
         user_form = UserForm(request.POST)
 
@@ -29,8 +29,7 @@ class SignUp(View):
             return redirect('home:home')
 
 
-class SignClient(View):
-    @method_decorator(login_required(login_url='login:login'))
+class SignClient(RegisterBase):
     def get(self, request):
         client_form = UserClientForm()
 
@@ -38,7 +37,6 @@ class SignClient(View):
             'form': client_form
         })
 
-    @method_decorator(login_required(login_url='login:login'))
     def post(self, request):
         client_form = UserClientForm(request.POST)
 
@@ -49,8 +47,7 @@ class SignClient(View):
             return redirect('home:home')
 
 
-class SignSupplier(View):
-    @method_decorator(login_required(login_url='login:login'))
+class SignSupplier(RegisterBase):
     def get(self, request):
         supplier_form = UserSupplierForm()
         # breakpoint()
