@@ -29,7 +29,7 @@ class SignUp(RegisterBase):
             return redirect('home:home')
 
 
-class SignClient(RegisterBase):
+class RegisterClient(RegisterBase):
     def get(self, request):
         client_form = UserClientForm()
 
@@ -47,7 +47,7 @@ class SignClient(RegisterBase):
             return redirect('home:home')
 
 
-class SignSupplier(RegisterBase):
+class RegisterSupplier(RegisterBase):
     def get(self, request):
         supplier_form = UserSupplierForm()
         # breakpoint()

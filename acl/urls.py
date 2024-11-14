@@ -6,6 +6,6 @@ app_name = 'acl'
 
 urlpatterns = [
     path('signup', views.SignUp.as_view(), name='signup'),
-    path('signclient', views.SignClient.as_view(), name='signclient'),
-    path('signsupplier', views.SignSupplier.as_view(), name='signsupplier')
+    path('registerclient', views.RegisterClient.as_view(), name='register-client'),
+    path('registersupplier', views.RegisterSupplier.as_view(), name='register-supplier')
 ]
