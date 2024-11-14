@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User, AbstractUser
 
+
 class User(AbstractUser):
     is_superuser = models.BooleanField(verbose_name='Admin', help_text='Designado para usuários Admins')
     first_name = models.CharField(verbose_name='Nome', max_length=150, blank=False)
@@ -8,7 +9,6 @@ class User(AbstractUser):
     email = models.EmailField(verbose_name='E-mail', blank=False)
     password = models.CharField(verbose_name='Senha', max_length=150, blank=False)
     
-
 # 
 # 
 class UserClient(models.Model):
