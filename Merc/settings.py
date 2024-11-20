@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'Login',
     'Home',
     'acl',
+    'Product',
     "django_bootstrap5",
 ]
 

@@ -1,30 +1,72 @@
 from django.db import models
 
 
-class Product(models.Model):
+class Product(models.Model):    
     CATEGORY_PRODUCT_CHOICES = {
-        'AL': 'Alimento',
-        'EL': 'Eletrônico',
+        'AL': 'Alimentos',
+        'EL': 'Eletrônicos',
         'FE': 'Ferramentas',
         'VE': 'Vestimentas'
     }
     
-    product_name = models.CharField(
+    name = models.CharField(
         max_length=120,
         null=False,
         blank=False,
+        verbose_name='Nome do Produto'
     )
 
     price = models.FloatField(
         max_length=120,
         null=False,
-        blank=False
+        blank=False,
+        verbose_name='Preço'
     )
 
     product_choices = models.CharField(
         max_length=2,
         choices=CATEGORY_PRODUCT_CHOICES,
         null=False,
-        blank=False
+        blank=False,
+        verbose_name='Categoria do Produto'
     )
 
+
+class StockHistory(models.Model):
+    product = models.ForeignKey(
+        Product, 
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
+    )
+
+    quantity = models.FloatField(
+        null=False, 
+        blank=False,
+        verbose_name='Quantidade'
+    )
+
+    entered_at = models.DateField(
+        blank=True,
+        null=True,
+        verbose_name='Data de Entrada'
+    )
+
+    leaved_at = models.DateField(
+        blank=True,
+        null=True,
+        verbose_name='Data de Saida'
+    )
+
+
+class ProductSummary(models.Model):
+    product = models.ForeignKey(
+        Product, 
+        on_delete=models.CASCADE,
+        null=False
+    )
+
+    summary = models.CharField(
+        max_length=255,
+        null=False
+    )
