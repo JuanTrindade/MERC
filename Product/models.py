@@ -37,7 +37,8 @@ class StockHistory(models.Model):
         Product, 
         on_delete=models.CASCADE,
         null=True,
-        blank=True
+        blank=True,
+        related_name='stock'
     )
 
     quantity = models.FloatField(

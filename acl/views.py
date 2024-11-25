@@ -7,11 +7,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 # 
 from .forms import UserForm, UserClientForm, UserSupplierForm
 
-class RegisterBase(LoginRequiredMixin):
+class RegisterBase(LoginRequiredMixin, FormView):
     login_url = 'login:login'
 
 
-class SignUp(RegisterBase, FormView):
+class SignUp(RegisterBase):
     template_name = 'acl_sign_template.html'
     form_class = UserForm
     success_url = reverse_lazy('home:home')
@@ -24,7 +24,7 @@ class SignUp(RegisterBase, FormView):
         return super().form_valid(user)
 
 
-class RegisterClient(RegisterBase, FormView):
+class RegisterClient(RegisterBase):
     template_name = 'acl_sign_template.html'
     form_class = UserClientForm
     success_url = reverse_lazy('home:home')
@@ -36,7 +36,7 @@ class RegisterClient(RegisterBase, FormView):
         return super().form_valid(client)
 
 
-class RegisterSupplier(RegisterBase, FormView):
+class RegisterSupplier(RegisterBase):
     template_name = 'acl_sign_template.html'
     form_class = UserSupplierForm
     success_url = reverse_lazy('home:home')

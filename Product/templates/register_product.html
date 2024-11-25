@@ -42,18 +42,24 @@
 
                 {% endif %}
 
-                <div>
-                    
-                    <label for="id_entered_at">Data de Entrada:</label>
-                    <input type="date" name="entered_at" class='form-control' required="" id="id_entered_at">
+                {% if form_stock.entered_at %}
+                    <div>
+                        
+                        <label for="id_entered_at">Data de Entrada:</label>
+                        <input type="date" name="entered_at" class='form-control' required="" id="id_entered_at">
 
-                </div>
+                    </div>
+
+                {% endif %}
 
                 <br>
                 {% bootstrap_form form_stock exclude='entered_at, leaved_at, product' %}
                 
                 <hr>
                 <button class='btn btn-primary' type="submit">Enviar</button>
+                <a href="{% url "product:listproduct" %}" class='btn btn-secondary'>
+                    Atualizar Produtos
+                </a>
 
             </form>
         </div>

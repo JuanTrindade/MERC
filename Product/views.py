@@ -1,18 +1,35 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
-from django.views.generic import FormView, UpdateView, View
+from django.views.generic import FormView, UpdateView, View, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 # 
 # 
-from .models import Product as ProductModel
+from .models import (
+    Product as ProductModel, 
+    StockHistory as StockModel, 
+    ProductSummary as SummaryModel
+)
 from .forms import ProductForm, StockForm
+
 
 class ProductBase(LoginRequiredMixin):
     login_url = 'login:login'
+    redirect_field_name = 'redirect'
 
 
-class ProductCreate(FormView):
+class ProductList(ProductBase, ListView):
+    template_name = 'list_product.html'
+    model = ProductModel
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # breakpoint()
+        return context
+    
+    
+
+class ProductCreate(ProductBase, FormView):
     title = 'CADASTRO DE PRODUTOS'
     template_name = 'register_product.html'
     fields = '__all__'
@@ -31,13 +48,7 @@ class ProductCreate(FormView):
         
         product_form = context['form']
         stock_form = context['form_stock'](self.request.POST)
-        
-        self.validating_form(product_form, stock_form)
 
-        return redirect('home:home')
-        
-
-    def validating_form(self, product_form, stock_form):
         if product_form.is_valid():
             product_object = product_form.save(commit=False)
             product_object.save()
@@ -47,3 +58,11 @@ class ProductCreate(FormView):
                 stock_object.product = product_object
 
                 stock_object.save()
+
+        return redirect('home:home')
+    
+
+class ProductUpdate(ProductBase, UpdateView):
+    template_name = 'register_product.html'
+    fields = '__all__'
+    model = ProductModel
