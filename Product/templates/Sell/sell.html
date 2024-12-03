@@ -1,0 +1,43 @@
+{% load django_bootstrap5 %}
+
+{% block conteudo %}
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{title}} {{object}}?</h5>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        <form action="" class="p-3" method="post">
+            {% csrf_token %}
+
+            {% bootstrap_form form exclude='product_choices' %}
+
+            <div class="mb-3">
+                <label class="form-label" for="id_product_choices">Categoria do Produto</label>
+                
+                <select name="product_choices" class="form-control" disabled required="" id="id_product_choices">
+                    {% for choices in form.product_choices %}
+                        {{choices}}
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label" for="id_quantity">Quantidade</label>
+                <input type="text" name="quantity" value="{{stock_obj.quantity}}" class="form-control" placeholder="Quantidade" required="" id="id_quantity">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="id_leaved_at">Saída</label>
+                <input type="date" name="leaved_at" value="{{stock_obj.leaved_at}}" class="form-control" placeholder="Saida" required="" id="id_leaved_at">
+            </div>
+
+            <button type="submit" class="btn btn-sm btn-success">Vender</button>
+        
+        </form>
+    </div>
+
+{% endblock conteudo %}

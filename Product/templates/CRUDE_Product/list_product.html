@@ -29,6 +29,7 @@
                     <th scope='col'>Quantidade</th>
                     <th scope='col'>Entrada</th>
                     <th scope='col'>#</th>
+                    <th scope='col'>#</th>
                   </tr>
                 </thead>
         
@@ -43,6 +44,29 @@
                                 <td>{{stock.entered_at}}</td>
                                 <td>
                                     <a class='btn btn-sm btn-primary' href="{% url "product:update-product" pk=product.pk %}">Atualizar</a>
+                                </td>
+                                <td>
+                                    {% comment %} <a class='btn btn-sm btn-danger' href="{% url "product:delete-product" pk=product.pk %}">Deletar?</a> {% endcomment %}
+                                    <button 
+                                        type="button" 
+                                        class="btn btn-sm btn-danger" 
+                                        data-toggle="modal" 
+                                        data-target="#exampleModal"
+                                        hx-get="{{product.pk}}/deleteproduct"  
+                                        hx-target="#page-content" 
+                                        hx-swap="innerHTML"
+                                    >
+                                        Deletar
+                                    </button>
+
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div id="page-content"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </td>
                             </tr>
                         {% endfor %}

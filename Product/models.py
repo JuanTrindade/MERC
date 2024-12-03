@@ -31,6 +31,9 @@ class Product(models.Model):
         verbose_name='Categoria do Produto'
     )
 
+    def __str__(self):
+        return f'{self.name}'
+
 
 class StockHistory(models.Model):
     product = models.ForeignKey(
